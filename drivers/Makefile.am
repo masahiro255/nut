@@ -44,7 +44,7 @@ SERIAL_DRIVERLIST = al175 bcmxcp belkin belkinunv bestfcom	\
 SNMP_DRIVERLIST = snmp-ups
 USB_LIBUSB_DRIVERLIST = usbhid-ups bcmxcp_usb tripplite_usb \
  blazer_usb richcomm_usb riello_usb \
- nutdrv_atcl_usb
+ nutdrv_atcl_usb omron_usb
 USB_DRIVERLIST = $(USB_LIBUSB_DRIVERLIST)
 SERIAL_USB_DRIVERLIST = \
 	nutdrv_qx
@@ -208,6 +208,10 @@ bcmxcp_usb_LDADD = $(LDADD_DRIVERS) $(LIBUSB_LIBS) -lm
 
 blazer_usb_SOURCES = blazer.c blazer_usb.c $(LIBUSB_IMPL) usb-common.c
 blazer_usb_LDADD = $(LDADD_DRIVERS) $(LIBUSB_LIBS) -lm
+
+omron_usb_SOURCES = omron_usb.c
+omron_usb_CFLAGS = $(LIBUSB_CFLAGS)
+omron_usb_LDADD = $(LDADD_DRIVERS) $(LIBUSB_LIBS) -lm
 
 nutdrv_atcl_usb_SOURCES = nutdrv_atcl_usb.c usb-common.c
 nutdrv_atcl_usb_LDADD = $(LDADD_DRIVERS) $(LIBUSB_LIBS)
